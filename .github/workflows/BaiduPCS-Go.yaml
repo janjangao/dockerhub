@@ -1,0 +1,16 @@
+name: BaiduPCS-Go
+
+on:
+  push:
+    paths:
+    - 'BaiduPCS-Go/Dockerfile'
+    - 'baidunetdisk/**'
+  workflow_dispatch:
+
+jobs:
+  job1:
+    name: buildx tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
