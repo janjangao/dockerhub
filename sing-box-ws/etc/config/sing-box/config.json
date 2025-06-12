@@ -6,7 +6,7 @@
             "listen_port": 3001,
             "users": [
                 {
-                    "password": "${PASSWORD}"
+                    "password": "${PASS}"
                 }
             ],
             "transport": {
@@ -23,7 +23,7 @@
                 "users": [
                     {
                         "username": "user",
-                        "password": "${PASSWORD}"
+                        "password": "${PASS}"
                     }
                 ]
             }
