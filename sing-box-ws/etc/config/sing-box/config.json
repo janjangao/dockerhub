@@ -3,10 +3,10 @@
         {
             "type": "trojan",
             "tag": "trojan-ws",
-            "listen_port": PORT,
+            "listen_port": 3001,
             "users": [
                 {
-                    "password": "PASSWORD"
+                    "password": "${PASSWORD}"
                 }
             ],
             "transport": {
@@ -23,7 +23,7 @@
                 "users": [
                     {
                         "username": "user",
-                        "password": "PASSWORD"
+                        "password": "${PASSWORD}"
                     }
                 ]
             }
