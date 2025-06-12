@@ -8,8 +8,7 @@ COPY --from=whoami /whoami /usr/local/bin/whoami
 ENV PASS=live
 ENV PORT=80
 
-COPY etc/config/sing-box/config.json /etc/config/sing-box/config.json
-COPY etc/config/traefik/traefik.yml /etc/config/traefik/traefik.yml
+COPY etc/config /etc/config
 
 EXPOSE 80 3128
 

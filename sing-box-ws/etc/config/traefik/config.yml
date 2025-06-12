@@ -1,0 +1,22 @@
+http:
+  routers:
+    sing-box:
+      rule: "Path(`/ray`)"         
+      entryPoints: [web]
+      service: sing-box
+      priority: 10  
+    whoami:
+      rule: "PathPrefix(`/`)"      
+      entryPoints: [web]
+      service: whoami
+      priority: 1                  
+
+  services:
+    sing-box:
+      loadBalancer:
+        servers:
+          - url: "http://127.0.0.1:3001"
+    whoami:
+      loadBalancer:
+        servers:
+          - url: "http://127.0.0.1:8080"
