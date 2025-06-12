@@ -18,15 +18,12 @@
             "type": "http",
             "tag": "http-proxy",
             "listen_port": 3128,
-            "auth": {
-                "type": "password",
-                "users": [
-                    {
-                        "username": "user",
-                        "password": "${PASS}"
-                    }
-                ]
-            }
+            "users": [
+                {
+                    "username": "user",
+                    "password": "${PASS}"
+                }
+            ]
         }
     ],
     "outbounds": [

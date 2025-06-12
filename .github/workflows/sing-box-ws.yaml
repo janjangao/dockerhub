@@ -4,7 +4,7 @@ on:
   push:
     paths:
     - 'sing-box-ws/Dockerfile'
-    - 'sing-box-ws/etc/config/sing-box/config.json'
+    - 'sing-box-ws/etc/config/**'
   workflow_dispatch:
 
 env:
