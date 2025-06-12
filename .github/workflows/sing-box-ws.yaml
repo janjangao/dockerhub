@@ -9,7 +9,8 @@ on:
 
 env:
   REGISTRY: docker.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: ${{ github.repository_owner }}/sing-box-ws
+  BUILD_DIR: sing-box-ws
 
 jobs:
   docker:
@@ -18,12 +19,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: 'Set env'
-        run: |
-          echo "AriaNg_VER=$(echo `grep -n "AriaNg_VER=" aria2/Dockerfile`|awk -F= '{print $2}')" >> $GITHUB_ENV
-          echo "ARIA2_VER=$(echo `grep -n "ARIA2_VER=" aria2/Dockerfile.aria2c`|awk -F= '{print $2}')" >> $GITHUB_ENV
-          echo "ALPINE_VER=$(echo `grep -n "FROM alpine" aria2/Dockerfile.aria2c`|awk -F: '{print $3}')" >> $GITHUB_ENV
 
       - name: Set up QEMU
         id: qemu
@@ -57,6 +52,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
+          context: ./${{ env.BUILD_DIR }}
+          file: ./${{ env.BUILD_DIR }}/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
@@ -68,4 +65,4 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: ${{ env.IMAGE_NAME }}
-          short-description: ${{ github.event.repository.description }}
+          readme-filepath: ./${{ env.BUILD_DIR }}/README.md
