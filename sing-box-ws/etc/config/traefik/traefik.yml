@@ -4,4 +4,4 @@ entryPoints:
 
 providers:
   file:
-    directory: "/etc/config/traefik/config.yml"
+    filename: "/etc/config/traefik/config.yml"
