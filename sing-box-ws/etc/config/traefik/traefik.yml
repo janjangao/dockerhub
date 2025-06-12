@@ -2,10 +2,6 @@ entryPoints:
   web:
     address: ":${PORT}"
 
-providers:
-  file:
-    watch: true
-
 http:
   routers:
     sing-box:
