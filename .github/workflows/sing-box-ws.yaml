@@ -7,6 +7,10 @@ on:
     - 'sing-box-ws/etc/config/sing-box/config.json'
   workflow_dispatch:
 
+env:
+  REGISTRY: docker.io
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
   docker:
     name: buildx tag
