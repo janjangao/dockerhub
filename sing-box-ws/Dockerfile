@@ -14,4 +14,5 @@ COPY etc/config/traefik/traefik.yml /etc/config/traefik/traefik.yml
 EXPOSE 80 3128
 
 COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
