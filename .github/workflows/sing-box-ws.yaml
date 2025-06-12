@@ -1,0 +1,67 @@
+name: sing-box-ws
+
+on:
+  push:
+    paths:
+    - 'sing-box-ws/Dockerfile'
+    - 'sing-box-ws/etc/config/sing-box/config.json'
+  workflow_dispatch:
+
+jobs:
+  docker:
+    name: buildx tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: 'Set env'
+        run: |
+          echo "AriaNg_VER=$(echo `grep -n "AriaNg_VER=" aria2/Dockerfile`|awk -F= '{print $2}')" >> $GITHUB_ENV
+          echo "ARIA2_VER=$(echo `grep -n "ARIA2_VER=" aria2/Dockerfile.aria2c`|awk -F= '{print $2}')" >> $GITHUB_ENV
+          echo "ALPINE_VER=$(echo `grep -n "FROM alpine" aria2/Dockerfile.aria2c`|awk -F: '{print $3}')" >> $GITHUB_ENV
+
+      - name: Set up QEMU
+        id: qemu
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # - name: Login to GHCR
+      #   uses: docker/login-action@v3
+      #   with:
+      #     registry: ghcr.io
+      #     username: ${{ github.actor }}
+      #     password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels)
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: latest
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Docker Hub Description
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: ${{ env.IMAGE_NAME }}
+          short-description: ${{ github.event.repository.description }}

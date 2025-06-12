@@ -1,0 +1,37 @@
+{
+    "inbounds": [
+        {
+            "type": "trojan",
+            "tag": "trojan-ws",
+            "listen_port": PORT,
+            "users": [
+                {
+                    "password": "PASSWORD"
+                }
+            ],
+            "transport": {
+                "type": "ws",
+                "path": "/ray"
+            }
+        },
+        {
+            "type": "http",
+            "tag": "http-proxy",
+            "listen_port": 3128,
+            "auth": {
+                "type": "password",
+                "users": [
+                    {
+                        "username": "user",
+                        "password": "PASSWORD"
+                    }
+                ]
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "type": "direct"
+        }
+    ]
+}
