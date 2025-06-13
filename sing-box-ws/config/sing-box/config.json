@@ -1,13 +1,13 @@
 {
     "inbounds": [
         {
-            "type": "trojan",
-            "tag": "trojan-ws",
-            "listen": "0.0.0.0",
-            "listen_port": 3001,
+            "type": "vless",
+            "tag": "vless-ws",
+            "listen": "127.0.0.1",
+            "listen_port": 8080,
             "users": [
                 {
-                    "password": "${PASS}"
+                    "uuid": "${UUID}"
                 }
             ],
             "transport": {

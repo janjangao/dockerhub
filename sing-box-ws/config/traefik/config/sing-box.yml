@@ -9,14 +9,13 @@ http:
       rule: "PathPrefix(`/`)"      
       entryPoints: [web]
       service: whoami
-      priority: 1                  
 
   services:
     sing-box:
       loadBalancer:
         servers:
-          - url: "http://127.0.0.1:3001"
+          - url: "http://127.0.0.1:8080"
     whoami:
       loadBalancer:
         servers:
-          - url: "http://127.0.0.1:8080"
+          - url: "http://127.0.0.1:8000"

@@ -1,11 +1,11 @@
 entryPoints:
   web:
-    address: ":80"
+    address: ":${PORT}"
   websecure:
     address: ":443"
 
 providers:
   file:
-    filename: "/etc/config/traefik/config-https.yml"
+    directory: "/etc/config/traefik/config"
   docker: {}
   # - /var/run/docker.sock:/var/run/docker.sock

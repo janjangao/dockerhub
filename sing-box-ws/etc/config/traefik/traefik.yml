@@ -1,7 +1,0 @@
-entryPoints:
-  web:
-    address: ":${PORT}"
-
-providers:
-  file:
-    filename: "/etc/config/traefik/config.yml"
