@@ -4,6 +4,7 @@ on:
   push:
     paths:
     - 'sing-box-ws/Dockerfile'
+    - 'sing-box-ws/entrypoint.sh'
     - 'sing-box-ws/etc/config/**'
   workflow_dispatch:
 
