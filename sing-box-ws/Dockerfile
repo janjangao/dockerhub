@@ -10,7 +10,7 @@ ENV PORT=80
 
 COPY config /config
 
-EXPOSE 80 443
+EXPOSE 80 443 8443
 
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
