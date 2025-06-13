@@ -2,7 +2,7 @@
 
 set -e
 
-sed -i "s|\${PASSWORD}|${PASSWORD}|g" /etc/config/sing-box/config.json
+sed -i "s|\${PASS}|${PASS}|g" /etc/config/sing-box/config.json
 sed -i "s|\${PORT}|${PORT}|g" /etc/config/traefik/traefik.yml
 
 echo "[INFO] Checking sing-box config..."
