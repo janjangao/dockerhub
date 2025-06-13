@@ -14,18 +14,6 @@
                 "type": "ws",
                 "path": "/ray"
             }
-        },
-        {
-            "type": "http",
-            "tag": "http-proxy",
-            "listen": "0.0.0.0",
-            "listen_port": 3128,
-            "users": [
-                {
-                    "username": "user",
-                    "password": "${PASS}"
-                }
-            ]
         }
     ],
     "outbounds": [

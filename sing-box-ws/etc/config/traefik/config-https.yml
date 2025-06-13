@@ -1,0 +1,48 @@
+entryPoints:
+  web:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+  websecure:
+    address: ":443"
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: ${EMAIL}
+      storage: /etc/config/traefik/acme.json
+      httpChallenge:
+        entryPoint: web
+
+http:
+  routers:
+    sing-box:
+      rule: "Host(`${HOST}`) && Path(`/ray`)"
+      entryPoints:
+        - websecure
+      service: sing-box
+      tls:
+        certResolver: letsencrypt
+      priority: 10
+
+    whoami:
+      rule: "Host(`${HOST}`) && PathPrefix(`/`)"
+      entryPoints:
+        - websecure
+      service: whoami
+      tls:
+        certResolver: letsencrypt
+      priority: 1                
+
+  services:
+    sing-box:
+      loadBalancer:
+        servers:
+          - url: "http://127.0.0.1:3001"
+    whoami:
+      loadBalancer:
+        servers:
+          - url: "http://127.0.0.1:8080"
