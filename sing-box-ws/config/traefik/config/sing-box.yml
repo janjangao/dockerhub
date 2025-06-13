@@ -9,6 +9,7 @@ http:
       rule: "PathPrefix(`/`)"      
       entryPoints: [web]
       service: whoami
+      priority: 1
 
   services:
     sing-box:
