@@ -3,6 +3,7 @@
         {
             "type": "trojan",
             "tag": "trojan-ws",
+            "listen": "0.0.0.0",
             "listen_port": 3001,
             "users": [
                 {
@@ -17,6 +18,7 @@
         {
             "type": "http",
             "tag": "http-proxy",
+            "listen": "0.0.0.0",
             "listen_port": 3128,
             "users": [
                 {
