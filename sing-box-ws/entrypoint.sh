@@ -8,6 +8,11 @@ cp -r /config/* /etc/config/
 sed -i "s|\${UUID}|${UUID}|g" /etc/config/sing-box/config.json
 sed -i "s|\${PORT}|${PORT}|g" /etc/config/traefik/traefik.yml
 
+if [ -S /var/run/docker.sock ]; then
+  echo "Docker socket found. Enabling Docker provider in Traefik config..."
+  sed -i 's/^# *docker: {}/docker: {}/' /etc/config/traefik/traefik.yml
+fi
+
 echo "[INFO] Checking sing-box config..."
 sing-box check -c /etc/config/sing-box/config.json || exit 1
 

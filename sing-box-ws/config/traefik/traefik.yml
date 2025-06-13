@@ -7,5 +7,4 @@ entryPoints:
 providers:
   file:
     directory: "/etc/config/traefik/config"
-  docker: {}
-  # - /var/run/docker.sock:/var/run/docker.sock
+  # docker: {}
