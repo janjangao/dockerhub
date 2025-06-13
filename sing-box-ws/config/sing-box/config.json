@@ -20,6 +20,11 @@
             "tag": "hysteria2",
             "listen": "::",
             "listen_port": 8443,
+            "tls": {
+                "enabled": true,
+                "certificate_path": "/etc/config/sing-box/hysteria2/fullchain.pem",
+                "key_path": "/etc/config/sing-box/hysteria2/privkey.pem"
+            },
             "users": [
                 {
                     "password": "${UUID}"
