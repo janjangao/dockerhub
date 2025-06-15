@@ -1,17 +1,17 @@
-name: sing-box-ws
+name: sing-box-tun
 
 on:
   push:
     paths:
-    - 'sing-box-ws/Dockerfile'
-    - 'sing-box-ws/entrypoint.sh'
-    - 'sing-box-ws/etc/config/**'
+    - 'sing-box-tun/Dockerfile'
+    - 'sing-box-tun/entrypoint.sh'
+    - 'sing-box-tun/etc/config/**'
   workflow_dispatch:
 
 env:
   REGISTRY: docker.io
-  IMAGE_NAME: ${{ github.repository_owner }}/sing-box-ws
-  BUILD_DIR: sing-box-ws
+  IMAGE_NAME: ${{ github.repository_owner }}/sing-box-tun
+  BUILD_DIR: sing-box-tun
 
 jobs:
   docker:

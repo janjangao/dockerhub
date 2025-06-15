@@ -88,99 +88,28 @@
             "type": "selector"
         },
         {
-            "outbounds": [
-                "🇭🇰 - 154.223.21.221:989",
-                "🇸🇬 - 64.176.85.73:1866",
-                "🇸🇬 - longalive.onrender.com",
-                "🇸🇬 - longalive.koyeb.app"
-            ],
+            "outbounds": [],
             "tag": "auto",
             "type": "urltest",
             "url": "https://dns.cloudflare.com/dns-query"
         },
         {
             "interrupt_exist_connections": true,
-            "outbounds": [
-                "🇭🇰 - 154.223.21.221:989",
-                "🇸🇬 - 64.176.85.73:1866",
-                "🇸🇬 - longalive.onrender.com",
-                "🇸🇬 - longalive.koyeb.app"
-            ],
+            "outbounds": [],
             "tag": "manual",
             "type": "selector"
         },
         {
             "interrupt_exist_connections": true,
             "outbounds": [
-                "ture-direct",
-                "🇨🇳 - oa.hayond.site"
+                "true-direct"
             ],
             "tag": "direct",
             "type": "selector"
         },
         {
-            "tag": "ture-direct",
+            "tag": "true-direct",
             "type": "direct"
-        },
-        {
-            "method": "aes-256-cfb",
-            "password": "f8f7aCzcPKbsF8p3",
-            "server": "154.223.21.221",
-            "server_port": 989,
-            "tag": "🇭🇰 - 154.223.21.221:989",
-            "type": "shadowsocks"
-        },
-        {
-            "method": "chacha20-ietf-poly1305",
-            "password": "oXGp1+ihlfKg826H",
-            "server": "64.176.85.73",
-            "server_port": 1866,
-            "tag": "🇸🇬 - 64.176.85.73:1866",
-            "type": "shadowsocks"
-        },
-        {
-            "server": "longalive.onrender.com",
-            "server_port": 443,
-            "tag": "🇸🇬 - longalive.onrender.com",
-            "tls": {
-                "enabled": true,
-                "server_name": "longalive.onrender.com",
-                "insecure": false
-            },
-            "transport": {
-                "path": "/ray",
-                "type": "ws"
-            },
-            "type": "vless",
-            "uuid": "c8f8d2b3-3f86-4f24-8b3f-0d7df3b6c4a1"
-        },
-        {
-            "server": "longalive.koyeb.app",
-            "server_port": 443,
-            "tag": "🇸🇬 - longalive.koyeb.app",
-            "tls": {
-                "enabled": true,
-                "server_name": "longalive.koyeb.app",
-                "insecure": false
-            },
-            "transport": {
-                "path": "/ray",
-                "type": "ws"
-            },
-            "type": "vless",
-            "uuid": "c8f8d2b3-3f86-4f24-8b3f-0d7df3b6c4a1"
-        },
-        {
-            "server": "oa.hayond.site",
-            "server_port": 8443,
-            "tag": "🇨🇳 - oa.hayond.site",
-            "tls": {
-                "enabled": true,
-                "server_name": "hayond.site",
-                "insecure": true
-            },
-            "type": "hysteria2",
-            "password": "c8f8d2b3-3f86-4f24-8b3f-0d7df3b6c4a1"
         }
     ],
     "route": {
