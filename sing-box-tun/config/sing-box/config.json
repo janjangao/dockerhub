@@ -44,9 +44,7 @@
         },
         "clash_api": {
             "external_controller": "127.0.0.1:9090",
-            "external_ui": "xd",
-            "external_ui_download_detour": "direct",
-            "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/gh-pages.zip"
+            "external_ui": "/etc/config/sing-box/metacubexd"
         }
     },
     "inbounds": [
@@ -152,25 +150,25 @@
                 "format": "binary",
                 "tag": "block",
                 "type": "file",
-                "url": "https://cdn.jsdelivr.net/gh/demarcush/breakfree@master/release/rule-sets/block.srs"
+                "url": "/etc/config/rule-sets/block.srs"
             },
             {
                 "format": "binary",
                 "tag": "direct",
                 "type": "file",
-                "url": "/rule-sets/direct-cn.srs"
+                "url": "/etc/config/rule-sets/direct-cn.srs"
             },
             {
                 "format": "binary",
                 "tag": "proxy",
                 "type": "file",
-                "url": "/rule-sets/proxy-cn.srs"
+                "url": "/etc/config/rule-sets/proxy-cn.srs"
             },
             {
                 "format": "binary",
                 "tag": "nsfw",
                 "type": "file",
-                "url": "/rule-sets/geosite-nsfw.srs"
+                "url": "/etc/config/rule-sets/geosite-nsfw.srs"
             }
         ],
         "rules": [

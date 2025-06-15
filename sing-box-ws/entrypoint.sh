@@ -2,11 +2,13 @@
 
 set -e
 
-mkdir -p /etc/config/
-cp -r /config/* /etc/config/
+if [ ! -d /etc/config ]; then
+    mkdir -p /etc/config/
+    cp -r /config/* /etc/config/
 
-sed -i "s|\${UUID}|${UUID}|g" /etc/config/sing-box/config.json
-sed -i "s|\${PORT}|${PORT}|g" /etc/config/traefik/traefik.yml
+    sed -i "s|\${UUID}|${UUID}|g" /etc/config/sing-box/config.json
+    sed -i "s|\${PORT}|${PORT}|g" /etc/config/traefik/traefik.yml
+fi
 
 if [ -S /var/run/docker.sock ]; then
   echo "Docker socket found. Enabling Docker provider in Traefik config..."
