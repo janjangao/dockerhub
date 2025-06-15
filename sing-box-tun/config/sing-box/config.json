@@ -149,26 +149,26 @@
             {
                 "format": "binary",
                 "tag": "block",
-                "type": "file",
-                "url": "/etc/config/rule-sets/block.srs"
+                "type": "local",
+                "path": "/etc/config/rule-sets/block.srs"
             },
             {
                 "format": "binary",
                 "tag": "direct",
-                "type": "file",
-                "url": "/etc/config/rule-sets/direct-cn.srs"
+                "type": "local",
+                "path": "/etc/config/rule-sets/direct-cn.srs"
             },
             {
                 "format": "binary",
                 "tag": "proxy",
-                "type": "file",
-                "url": "/etc/config/rule-sets/proxy-cn.srs"
+                "type": "local",
+                "path": "/etc/config/rule-sets/proxy-cn.srs"
             },
             {
                 "format": "binary",
                 "tag": "nsfw",
-                "type": "file",
-                "url": "/etc/config/rule-sets/geosite-nsfw.srs"
+                "type": "local",
+                "path": "/etc/config/rule-sets/geosite-nsfw.srs"
             }
         ],
         "rules": [
