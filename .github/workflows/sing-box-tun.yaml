@@ -5,7 +5,7 @@ on:
     paths:
     - 'sing-box-tun/Dockerfile'
     - 'sing-box-tun/entrypoint.sh'
-    - 'sing-box-tun/etc/config/**'
+    - 'sing-box-tun/config/**'
   workflow_dispatch:
 
 env:
