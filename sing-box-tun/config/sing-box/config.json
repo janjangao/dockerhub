@@ -88,21 +88,26 @@
             "type": "selector"
         },
         {
-            "outbounds": [],
+            "outbounds": [
+                "🇸🇬 - longalive.onrender.com"
+            ],
             "tag": "auto",
             "type": "urltest",
             "url": "https://dns.cloudflare.com/dns-query"
         },
         {
             "interrupt_exist_connections": true,
-            "outbounds": [],
+            "outbounds": [
+                "🇸🇬 - longalive.onrender.com"
+            ],
             "tag": "manual",
             "type": "selector"
         },
         {
             "interrupt_exist_connections": true,
             "outbounds": [
-                "true-direct"
+                "true-direct",
+                "🇨🇳 - oa.hayond.site"
             ],
             "tag": "direct",
             "type": "selector"
@@ -110,6 +115,34 @@
         {
             "tag": "true-direct",
             "type": "direct"
+        },
+        {
+            "server": "longalive.onrender.com",
+            "server_port": 443,
+            "tag": "🇸🇬 - longalive.onrender.com",
+            "tls": {
+                "enabled": true,
+                "server_name": "longalive.onrender.com",
+                "insecure": false
+            },
+            "transport": {
+                "path": "/ray",
+                "type": "ws"
+            },
+            "type": "vless",
+            "uuid": "${UUID}"
+        },
+        {
+            "server": "oa.hayond.site",
+            "server_port": 8443,
+            "tag": "🇨🇳 - oa.hayond.site",
+            "tls": {
+                "enabled": true,
+                "server_name": "hayond.site",
+                "insecure": true
+            },
+            "type": "hysteria2",
+            "password": "${UUID}"
         }
     ],
     "route": {
