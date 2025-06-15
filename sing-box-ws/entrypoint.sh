@@ -2,7 +2,7 @@
 
 set -e
 
-if [ ! -d /etc/config/sing-box/config.json ]; then
+if [ ! -f /etc/config/sing-box/config.json ]; then
     mkdir -p /etc/config/
     cp -r /config/* /etc/config/
 
