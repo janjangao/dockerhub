@@ -150,25 +150,25 @@
                 "format": "binary",
                 "tag": "block",
                 "type": "local",
-                "path": "/etc/config/rule-sets/block.srs"
+                "path": "/etc/config/sing-box/rule-sets/block.srs"
             },
             {
                 "format": "binary",
                 "tag": "direct",
                 "type": "local",
-                "path": "/etc/config/rule-sets/direct-cn.srs"
+                "path": "/etc/config/sing-box/rule-sets/block.srs"
             },
             {
                 "format": "binary",
                 "tag": "proxy",
                 "type": "local",
-                "path": "/etc/config/rule-sets/proxy-cn.srs"
+                "path": "/etc/config/sing-box/rule-sets/block.srs"
             },
             {
                 "format": "binary",
                 "tag": "nsfw",
                 "type": "local",
-                "path": "/etc/config/rule-sets/geosite-nsfw.srs"
+                "path": "/etc/config/sing-box/rule-sets/geosite-nsfw.srs"
             }
         ],
         "rules": [
