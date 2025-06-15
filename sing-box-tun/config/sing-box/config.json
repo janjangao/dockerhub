@@ -149,32 +149,28 @@
         "auto_detect_interface": true,
         "rule_set": [
             {
-                "download_detour": "direct",
                 "format": "binary",
                 "tag": "block",
-                "type": "remote",
+                "type": "file",
                 "url": "https://cdn.jsdelivr.net/gh/demarcush/breakfree@master/release/rule-sets/block.srs"
             },
             {
-                "download_detour": "direct",
                 "format": "binary",
                 "tag": "direct",
-                "type": "remote",
-                "url": "https://cdn.jsdelivr.net/gh/demarcush/breakfree@master/release/rule-sets/direct-cn.srs"
+                "type": "file",
+                "url": "/rule-sets/direct-cn.srs"
             },
             {
-                "download_detour": "direct",
                 "format": "binary",
                 "tag": "proxy",
-                "type": "remote",
-                "url": "https://cdn.jsdelivr.net/gh/demarcush/breakfree@master/release/rule-sets/proxy-cn.srs"
+                "type": "file",
+                "url": "/rule-sets/proxy-cn.srs"
             },
             {
-                "download_detour": "direct",
                 "format": "binary",
                 "tag": "nsfw",
-                "type": "remote",
-                "url": "https://cdn.jsdelivr.net/gh/chocolate4u/Iran-sing-box-rules@rule-set/geosite-nsfw.srs"
+                "type": "file",
+                "url": "/rule-sets/geosite-nsfw.srs"
             }
         ],
         "rules": [
