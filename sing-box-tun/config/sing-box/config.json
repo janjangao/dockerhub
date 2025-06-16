@@ -17,17 +17,29 @@
                     "A"
                 ],
                 "server": "fakeip"
+            },
+            {
+                "clash_mode": "Direct",
+                "server": "local"
+            },
+            {
+                "clash_mode": "Global",
+                "server": "google"
+            },
+            {
+                "rule_set": "direct",
+                "server": "local"
             }
         ],
         "servers": [
             {
-                "address": "https://1.1.1.2/dns-query",
-                "tag": "remote"
+                "tag": "google",
+                "address": "tls://8.8.8.8"
             },
             {
-                "address": "local",
-                "detour": "direct",
-                "tag": "local"
+                "tag": "local",
+                "address": "223.5.5.5",
+                "detour": "direct"
             },
             {
                 "address": "fakeip",
@@ -37,9 +49,10 @@
         "strategy": "prefer_ipv6"
     },
     "experimental": {
-        "clash_api": {
-            "external_controller": "0.0.0.0:9090",
-            "external_ui": "/etc/config/sing-box/ui/metacubexd"
+        "cache_file": {
+            "enabled": true,
+            "store_fakeip": true,
+            "store_rdrc": true
         }
     },
     "inbounds": [
@@ -74,68 +87,26 @@
             "interrupt_exist_connections": true,
             "outbounds": [
                 "auto",
-                "manual",
-                "direct"
+                "manual"
             ],
             "tag": "default",
             "type": "selector"
         },
         {
-            "outbounds": [
-                "🇸🇬 - longalive.onrender.com"
-            ],
+            "outbounds": [],
             "tag": "auto",
             "type": "urltest",
             "url": "https://dns.cloudflare.com/dns-query"
         },
         {
             "interrupt_exist_connections": true,
-            "outbounds": [
-                "🇸🇬 - longalive.onrender.com"
-            ],
+            "outbounds": [],
             "tag": "manual",
             "type": "selector"
         },
         {
-            "interrupt_exist_connections": true,
-            "outbounds": [
-                "true-direct",
-                "🇨🇳 - oa.hayond.site"
-            ],
             "tag": "direct",
-            "type": "selector"
-        },
-        {
-            "tag": "true-direct",
             "type": "direct"
-        },
-        {
-            "server": "longalive.onrender.com",
-            "server_port": 443,
-            "tag": "🇸🇬 - longalive.onrender.com",
-            "tls": {
-                "enabled": true,
-                "server_name": "longalive.onrender.com",
-                "insecure": false
-            },
-            "transport": {
-                "path": "/ray",
-                "type": "ws"
-            },
-            "type": "vless",
-            "uuid": "${UUID}"
-        },
-        {
-            "server": "oa.hayond.site",
-            "server_port": 8443,
-            "tag": "🇨🇳 - oa.hayond.site",
-            "tls": {
-                "enabled": true,
-                "server_name": "hayond.site",
-                "insecure": true
-            },
-            "type": "hysteria2",
-            "password": "${UUID}"
         }
     ],
     "route": {
@@ -151,13 +122,13 @@
                 "format": "binary",
                 "tag": "direct",
                 "type": "local",
-                "path": "/etc/config/sing-box/rule-sets/block.srs"
+                "path": "/etc/config/sing-box/rule-sets/direct-cn.srs"
             },
             {
                 "format": "binary",
                 "tag": "proxy",
                 "type": "local",
-                "path": "/etc/config/sing-box/rule-sets/block.srs"
+                "path": "/etc/config/sing-box/rule-sets/proxy-cn.srs"
             },
             {
                 "format": "binary",
