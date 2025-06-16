@@ -39,7 +39,7 @@
     "experimental": {
         "clash_api": {
             "external_controller": "0.0.0.0:9090",
-            "external_ui": "/etc/config/sing-box/metacubexd"
+            "external_ui": "/etc/config/sing-box/ui/metacubexd"
         }
     },
     "inbounds": [
