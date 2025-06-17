@@ -4,9 +4,6 @@ primary_region = "hkg"
 [build]
   image = "janjangao/sing-box-ws"
 
-[env]
-  HTTPS_REDIRECT = "true"
-
 [[services]]
   internal_port = 80
   protocol = "tcp"
@@ -14,10 +11,6 @@ primary_region = "hkg"
     port = 80
     handlers = ["http"]
     force_https = true
-
-[[services]]
-  internal_port = 443
-  protocol = "tcp"
   [[services.ports]]
     port = 443
     handlers = ["tls", "http"]
