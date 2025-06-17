@@ -22,13 +22,10 @@ jobs:
       - name: Github Actions Setup Flyctl
         uses: superfly/flyctl-actions/setup-flyctl@master
 
-      - name: Set ENV
-        run: flyctl secrets set UUID=${{ secrets.UUID }}
-        env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-
-      - name: Deploy
+      - name: Deploy to fly.io
         working-directory: ./fly-io-sbws
-        run: flyctl deploy --remote-only
+        run: |
+          flyctl secrets set UUID=${{ secrets.UUID }}
+          flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
