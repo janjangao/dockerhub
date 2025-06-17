@@ -4,8 +4,11 @@ primary_region = "hkg"
 [build]
   image = "janjangao/sing-box-ws"
 
+[env]
+  PORT = "8888"
+
 [[services]]
-  internal_port = 80
+  internal_port = 8888
   protocol = "tcp"
   [[services.ports]]
     port = 80
