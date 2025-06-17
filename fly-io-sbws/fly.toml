@@ -2,9 +2,9 @@ app = "longalive"
 primary_region = "hkg"
 
 [build]
-dockerfile = "../sing-box-ws/Dockerfile"
-build_context = "../sing-box-ws"
-args = { HTTPS_REDIRECT = "true" }
+  image = "janjangao/sing-box-ws"
+[build.args]
+  HTTPS_REDIRECT="true"
 
 [[services]]
   internal_port = 80
