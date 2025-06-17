@@ -1,0 +1,27 @@
+app = "longalive"
+primary_region = "hkg"
+
+[build]
+dockerfile = "../sing-box-ws/Dockerfile"
+build_context = "../sing-box-ws"
+args = { HTTPS_REDIRECT = "true" }
+
+[[services]]
+  internal_port = 80
+  protocol = "tcp"
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+
+[[services]]
+  internal_port = 443
+  protocol = "tcp"
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
+
+[[services]]
+  internal_port = 8443
+  protocol = "udp"
+  [[services.ports]]
+    port = 8443

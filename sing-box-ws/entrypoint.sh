@@ -10,6 +10,12 @@ if [ ! -f /etc/config/sing-box/config.json ]; then
     sed -i "s|\${PORT}|${PORT}|g" /etc/config/traefik/traefik.yml
 fi
 
+if [ "$HTTPS_REDIRECT" = "true" ] && [ -f "/etc/config/traefik/config/sing-box.yml" ]; then
+  sed -i 's/middlewares: \[\${https-redirect}\]/middlewares: \["https-redirect"\]/' /etc/config/traefik/config/sing-box.yml
+else
+  sed -i '/middlewares: \[\${https-redirect}\]/d' /etc/config/traefik/config/sing-box.yml
+fi
+
 if [ -S /var/run/docker.sock ]; then
   echo "Docker socket found. Enabling Docker provider in Traefik config..."
   sed -i 's/^# *docker: {}/docker: {}/' /etc/config/traefik/traefik.yml

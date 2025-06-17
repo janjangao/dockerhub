@@ -1,13 +1,20 @@
 http:
+  middlewares:
+    https-redirect:
+      redirectScheme:
+        scheme: https
+        permanent: true
   routers:
     sing-box:
       rule: "Path(`/ray`)"         
-      entryPoints: [web]
+      entryPoints: [web, websecure]
+      middlewares: [${https-redirect}]
       service: sing-box
       priority: 10  
     whoami:
       rule: "PathPrefix(`/`)"      
-      entryPoints: [web]
+      entryPoints: [web, websecure]
+      middlewares: [${https-redirect}]
       service: whoami
       priority: 1
 

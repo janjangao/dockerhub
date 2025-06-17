@@ -1,0 +1,28 @@
+name: fly-io-sbws
+
+on:
+  push:
+    paths:
+    - 'fly-io-sbws/fly.toml'
+  workflow_dispatch:
+
+env:
+  REGISTRY: docker.io
+  IMAGE_NAME: ${{ github.repository_owner }}/fly-io-sbws
+  BUILD_DIR: fly-io-sbws
+
+jobs:
+  docker:
+    name: buildx tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to Fly.io
+        uses: superfly/flyctl-actions@v1.5
+        with:
+          args: "deploy"
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+        working-directory: ./fly-io-sbws
