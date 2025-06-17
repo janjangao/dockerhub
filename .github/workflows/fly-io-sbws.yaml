@@ -21,14 +21,15 @@ jobs:
 
       - name: Github Actions Setup Flyctl
         uses: superfly/flyctl-actions/setup-flyctl@master
-
-      # - name: Create App to Fly.io
-      #   run: flyctl apps create longalive --org personal
-      #   env:
-      #     FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-
-      - name: Deploy to Fly.io
-        working-directory: ./fly-io-sbws
-        run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
+      # - name: Create App
+      #   run: flyctl apps create longalive --org personal
+
+      - name: Set ENV
+        run: flyctl secrets set UUID=${{ secrets.UUID }}
+
+      - name: Deploy
+        working-directory: ./fly-io-sbws
+        run: flyctl deploy --remote-only
