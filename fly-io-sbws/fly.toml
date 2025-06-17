@@ -5,21 +5,8 @@ primary_region = "hkg"
   image = "janjangao/sing-box-ws"
 
 [env]
-  PORT = "8888"
+  HTTPS_REDIRECT = "true"
 
-[[services]]
-  internal_port = 8888
-  protocol = "tcp"
-  [[services.ports]]
-    port = 80
-    handlers = ["http"]
-    force_https = true
-  [[services.ports]]
-    port = 443
-    handlers = ["tls", "http"]
-
-[[services]]
-  internal_port = 8443
-  protocol = "udp"
-  [[services.ports]]
-    port = 8443
+[http_service]
+  internal_port = 80
+  force_https = true
