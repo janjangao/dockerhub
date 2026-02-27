@@ -1,5 +1,5 @@
 app = 'longalive'
-primary_region = 'sin'
+primary_region = 'lax'
 
 [build]
   image = "janjangao/sing-box-ws"
